@@ -3,6 +3,7 @@ import About from "../pages/About";
 import Home from "../pages/Home";
 import Layout from "../components/Layout";
 import Shop from "../pages/Shop";
+import Login from "../pages/Login";
 
  const Routess = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ import Shop from "../pages/Shop";
         path: "/shop",
         element: <Shop />,
       },
+      {
+        path: "/login",
+        element: <Login/>
+      }
     ],
   },
 ]);
