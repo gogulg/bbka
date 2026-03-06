@@ -1,121 +1,13 @@
-// import React from "react";
-// import { useEffect } from "react";
-// import { useState } from "react";
-// import axios from "axios";
-
-// const Login = () => {
-//   const [formData, myFormData] = useState({
-//     name: "",
-//     lname: "",
-//     username: "",
-//     password: "",
-//   });
-
-//   const [user, setUser] = useState([]);
-
-//   const handleChange = (e) => {
-//     console.log(e.target.value);
-//     const { name, value } = e.target;
-//     myFormData((formData) => ({
-//       ...formData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const { data } = await axios.post(
-//       "http://localhost:5333/userAdd",
-//       formData,
-//     );
-//     console.log("data is ", data);
-
-//     console.log(formData);
-//   };
-
-//   // useEffect(() => {
-//   //   const getItem = async () => {
-//   //     const response = await fetch("http://localhost:5333/get");
-//   //     const data = await response.json();
-//   //     console.log(data);
-//   //     setUser(data);
-//   //   };
-//   //   getItem();
-//   // }, []);
-
-//   useEffect(() => {
-//     const getItem = async () => {
-//       const { data } = await axios.get("http://localhost:5333/get");
-//       setUser(data);
-//       console.log(data);
-//     };
-//     getItem();
-//   }, []);
-
-//   return (
-//     <div className="flex w-full h-screen">
-//       <div className="w-full lg:w-1/2 flex items-center justify-center bg-amber-700">
-//         <div className="bg-white px-20 py-30 rounded-2xl shadow-2xl">
-//           <form className="grid grid-row mx-15 gap-3" onSubmit={handleSubmit}>
-//             <span className="flex justify-center font-bold text-4xl">
-//               WELCOME
-//             </span>
-//             <label>FirstName</label>
-//             <input
-//               type="textbox"
-//               name="name"
-//               className="bg-white"
-//               value={formData.name}
-//               onChange={handleChange}
-//               placeholder="Firstname"
-//             ></input>
-//             <input
-//               type="textbox"
-//               name="lname"
-//               onChange={handleChange}
-//               placeholder="Lastname"
-//             ></input>
-//             <input
-//               type="textbox"
-//               name="username"
-//               onChange={handleChange}
-//               placeholder="username"
-//             ></input>
-//             <input
-//               type="password"
-//               name="password"
-//               onChange={handleChange}
-//               placeholder="password"
-//             ></input>
-//             <button className="bg-amber-200">Hi</button>
-//           </form>
-//         </div>
-//       </div>
-//       <div className="lg:flex w-1/2 bg-amber-200">
-//         <ul>
-//           {user.map((user, index) => (
-//             <li key={index}>
-//               {" "}
-//               <h6>{user.username} </h6>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Login;
-
 import { useState } from "react";
 import img from "../assets/img.jpg";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    fname: "",
-    lname: "",
+    name: "",
+    email: "",
     password: "",
     checked: false,
   });
@@ -129,8 +21,19 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const isValidField =
+    !formData.name &&
+    !formData.email &&
+    !formData.password &&
+    !formData.checked;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await axios.post(
+      "http://localhost:5333/api/user/signup",
+      formData,
+    );
+
     console.log(formData);
     navigate("/about");
     toast.success(`Login Sucessfull`);
@@ -151,14 +54,15 @@ const Login = () => {
               <span>Name</span>
               <input
                 className=" rounded-xl border bg-[#acc58b] px-2"
-                name="fname"
-                value={formData.fname}
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
               ></input>
               <span>Email</span>
               <input
                 className=" rounded-xl border bg-[#acc58b] px-2"
-                name="lname"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
               ></input>
               <span>Password</span>
@@ -179,6 +83,7 @@ const Login = () => {
                 </span>
               </div>
               <button
+                disabled={isValidField}
                 className="bg-[#859765]  hover:bg-blue-400 text-white rounded-xl text-xl shadow-xs"
                 type="submit"
               >
@@ -187,7 +92,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div>
+      <div className=" md:1/3 ">
           <img
             src={img}
             alt="Company Logo"

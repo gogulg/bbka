@@ -11,7 +11,7 @@ const Footer = () => {
             </span>
             <span className="font-bold text-2xl">BIBIKA</span>
           </div>
-          <p className="text-wrap w-1/3 ">
+          <p className="text-wrap w-1/3 font-serif ">
             Bibika is a fashion store by Gopika Bibin, based in Pampuram,
             bringing carefully curated styles for modern living. From everyday
             essentials to statement outfits, Bibika blends quality, comfort, and
