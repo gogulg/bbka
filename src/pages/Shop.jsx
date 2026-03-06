@@ -8,7 +8,7 @@ import on4 from "../assets/on4.jpg";
 
 const Shop = () => {
   return (
-   <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 m-6">
+   <div className="grid grid-cols-2 lg:grid-cols-3   gap-5 m-6">
       <img
         src={on1}
         alt="Company Logo"
