@@ -25,7 +25,7 @@ const Home = () => {
           return <div>{list}</div>;
         })}
       </div>
-      <div className="grid grid-cols-6 gap-3 m-5 ">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 m-5 ">
         <img
           src={on1}
           alt="Company Logo"

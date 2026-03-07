@@ -13,7 +13,7 @@ const Nav = () => {
             BIBIKA FASHION
           </h1>
         </div>
-        <div className=" flex gap-10  text-black px-6">
+        <div className="hidden md:flex md:w-1/3 flex gap-10  text-black px-6  md:1/3" >
           <span className="cursor-pointer hover:text-red-500 ">
             {" "}
             <Link to="/">Home</Link>{" "}
