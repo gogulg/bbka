@@ -2,7 +2,7 @@ import React from "react";
 import logod from "../assets/lo.png";
 const Footer = () => {
   return (
-    <div className="m-10 shadow-2xl border-0 p-3 min-h-[280px]">
+    <div className="m-5 shadow-2xl border-0 p-3 ">
       <div className="grid grid-cols-1 md:grid-cols-2 justify-between m-1/3">
         <div className="">
           <div className="flex items-center pb-2">
@@ -18,8 +18,9 @@ const Footer = () => {
             elegance through its online store—designed to make fashion
             accessible and timeless.
           </p>
+        
         </div>
-        <div className="grid grid-cols-3 gap-2 md:gap-40 ">
+        <div className="hidden lg:grid grid-cols-3 gap-2 md:gap-40 ">
           <div className="grid grid-rows-4">
             <span className="font-bold text-xl">Product</span>
             <span>Men</span>

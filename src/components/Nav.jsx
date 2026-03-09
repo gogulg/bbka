@@ -13,10 +13,10 @@ const Nav = () => {
             BIBIKA FASHION
           </h1>
         </div>
-        <div className="hidden md:flex md:w-1/3 flex gap-10  text-black px-6  md:1/3" >
-          <span className="cursor-pointer hover:text-red-500 ">
+        <div className="hidden lg:flex md:w-1/3  gap-10  text-black px-6 font-serif  md:1/3" >
+          <span className="cursor-pointer hover:text-red-500  ">
             {" "}
-            <Link to="/">Home</Link>{" "}
+            <Link to="/">HOME</Link>{" "}
           </span>
           <span className="cursor-pointer hover:text-red-500">
             {" "}
@@ -33,7 +33,7 @@ const Nav = () => {
         </div>
         <button  onClick={()=>{
           navigate("/login")
-        }} className=" flex gap-3 cursor-pointer text-black bg-[#acc58b] rounded-2xl items-center px-5 py-2 hover:bg-green-600">
+        }} className=" hidden lg:flex gap-3 cursor-pointer text-black bg-[#acc58b] rounded-2xl items-center px-5 py-2 hover:bg-green-600">
           Login
         </button>
       </div>

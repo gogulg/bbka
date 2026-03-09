@@ -27,7 +27,9 @@ const About = () => {
       </div>
       <div className="p-10 w-1/2 text-2xl rounded-2xl bg-amber-50 h-full">
         <span className="text-4xl pb-10 flex">ABOUT US</span>
-
+<div class="relative w-64 h-40 bg-gray-200">
+  <span class="absolute top-2 right-2 bg-red-500 text-white p-1 text-xs">New</span>
+</div>
         
       </div>
     </div>
